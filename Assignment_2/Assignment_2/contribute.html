@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy of Bharat - Share Your Historical Collections</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #060101;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff9a3c;
+        }
+
+        .login-btn {
+            background-color: #ff9a3c;
+            color: #000;
+            padding: 8px 20px;
+            
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #d9772b;
+        }
+
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0; /* Increased padding to give more space */
+            position: relative;
+            background-color: #4a4a4a;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Changed to space-between for better spacing */
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left; /* Return to left-aligned text */
+            padding-right: 40px; /* Add padding to separate from image */
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .hero span {
+            color: #d18128;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: flex-end; /* Align image to right */
+            width: 40%; /* Control width of container */
+        }
+        
+        .hero-image img {
+            max-width: 100%; /* Make image responsive */
+            height: auto;
+            max-height: 250px; /* Control maximum height */
+        }
+        
+        .get-started-btn {
+            background-color: #d18128;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 10px 0;
+        }
+        
+        .feature-box {
+            background-color: #d18128;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .feature-box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .feature-image {
+            width: 200px;
+            display: block;
+            margin: 20px 0;
+        }
+        
+        /* Make consistent spacing for all feature rows */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+
+        /* Apply consistent spacing for all feature sections */
+        .feature-img {
+            flex: 1;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .feature-text {
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .feature-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-text p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .feature-img img {
+            width: 250px;
+            max-width: 100%;
+        }
+        
+        /* Visibility Section */
+        .visibility-section {
+            background-color: #1a1a1a;
+            padding: 50px 0;
+            margin: 40px 0;
+        }
+        
+        .visibility-content {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .visibility-image {
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .visibility-text {
+            padding-left: 30px;
+        }
+        
+        /* Form Section */
+        .signup-section {
+            padding: 40px 0;
+            margin: 50px 0;
+        }
+
+        .form-title {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 15px 0 0 0;
+        }
+        
+        .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #d18128;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .submit-btn {
+            background-color: #d18128;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 50px;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff9a3c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            color: #ccc;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff9a3c;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+        .get-started-btn a{
+            text-decoration: none;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="Legacy of Bharat Logo">
+            <h1>Legacy of Bharat</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="stories.html">Stories</a>
+            <a href="explore.html">Explore</a>
+            <a href="contribute.html">Contribute</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Share your historical collections on <span>Legacy of Bharat.</span></h2>
+                <button class="get-started-btn"><a href="signup.html" >Get Started</a></button>
+            </div>
+            <div class="hero-image">
+                <img src="./images/frame11/1.png" alt="Hero Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section 1 -->
+    <section class="features">
+        <div class="container">
+            <!-- First feature - Image on left, text on right -->
+            <div class="feature-row">
+                <div class="feature-img">
+                    <img src="./images/frame11/2.png" alt="Promote Collections">
+                </div>
+                <div class="feature-text">
+                    <h3>Promote your collections</h3>
+                    <p>Transcribe, organize and curate your items to maximize your exposure. Create collections about interesting finds or pieces and a page dedicated to your treasures to help inspire discover more about you and your collections.</p>
+                </div>
+            </div>
+            
+            <!-- Second feature - Image on right, text on left -->
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h3>Upskill to get the most out of your collections</h3>
+                    <p>Discover training around copyright, support from aggregators and resources while help you gain new digital skills and share your collections online accurately and in high quality.</p>
+                </div>
+                <div class="feature-img">
+                    <img src="./images/frame11/3.png" alt="Digital Skills">
+                </div>
+            </div>
+            
+            <!-- Third feature - Image on left, text on right -->
+            <div class="feature-row">
+                <div class="feature-img">
+                    <img src="./images/frame11/4.png" alt="Digital Visibility">
+                </div>
+                <div class="feature-text">
+                    <h3>Increase the visibility of your collections</h3>
+                    <p>To get more people to view and interact with your collections, they have to be findable online. Use our tools and resources and benefit from the expertise of our aggregators to help you prepare your collection for the digital world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Form Section -->
+    <section class="signup-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h3 class="form-title">Register to get the most out of Bharat</h3>
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <div class="form-row">
+                                <input type="text" id="firstName" placeholder="First Name" required>
+                                <input type="text" id="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmEmail">Confirm Email</label>
+                            <input type="email" id="confirmEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="institution">Institution *</label>
+                            <input type="text" id="institution" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <input type="text" id="country" required>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Mission Section -->
+            <div class="footer-section">
+                <h3>Our Mission</h3>
+                <p>Legacy of Bharat is dedicated to preserving and showcasing India's rich cultural heritage through digital innovation, fostering global appreciation and understanding.</p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>More info</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Our Initiatives</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h3>Find us elsewhere</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="./images/fb.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/insta.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/pinterest.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/twitter.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/linkedin.png"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Legacy of Bharat. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

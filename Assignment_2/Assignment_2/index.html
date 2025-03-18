@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy of Bharat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #333;
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            background-color: #060101;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff9a3c;
+        }
+
+        .login-btn {
+            background-color: #ff9a3c;
+            color: #000;
+            padding: 8px 20px;
+            
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #d9772b;
+        }
+
+        
+        /* Hero Section */
+        /* Hero Section with Updated Background */
+        .hero {
+            position: relative;
+            height: 700px;
+            background-image: url('./images/group70/1.png'); /* Replace with your actual image       path */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)); /* Slightly darker overlay for better        text visibility */
+        }
+
+        /* You can keep the rest of your hero section styles as they are */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            max-width: 550px;
+        }
+
+        .hero-content h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .explore-btn, .contribute-btn {
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+        }
+
+        .explore-btn {
+            background-color: #b36b1d;
+            color: white;
+        }
+
+        .contribute-btn {
+            background-color: transparent;
+            border: 1px solid #b36b1d;
+            color: #b36b1d;
+        }
+        
+        /* Themes Section */
+        .themes {
+            padding: 40px 0;
+            background-color: #3a3a3a;
+            text-align: center;
+        }
+        
+        .themes h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-transform: none;
+            font-weight: normal;
+        }
+        
+        .themes-carousel {
+            position: relative;
+            height: 250px;
+            margin: 0 auto;
+            max-width: 1000px;
+            overflow: hidden;
+        }
+        
+        .carousel-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+        
+        .theme-card {
+            min-width: 200px;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        
+        .theme-card.active {
+            border: 2px solid #b36b1d;
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .theme-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(179, 107, 29, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        
+        .carousel-controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .carousel-controls button {
+            background-color: #b36b1d;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Account Section */
+        .account {
+            margin: 50px auto;
+            background-color: #ff9933;
+            max-width: 800px;
+            border-radius: 8px;
+            padding: 0;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .account-illustration {
+            width: 40%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .account-illustration img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .account-content {
+            width: 60%;
+            padding: 30px;
+        }
+        
+        .account-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .account-content p {
+            margin-bottom: 25px;
+            color: white;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        
+        .account-btn {
+            background-color: #e6d1b8;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .account-btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        /* Stories Section */
+        .stories, .galleries {
+            padding: 0 40px 40px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+        
+        .cards-container {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #b36b1d;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 33.33%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-image {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 15px;
+        }
+        
+        
+        .card-content h4 {
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .card-content p {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .view-all {
+            background-color: #b36b1d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        
+        .view-all:hover{
+            transition: transform 0.2s ease
+        }
+
+        .view-all, .explore-btn, .contribute-btn, .account-btn, .login-btn {
+            transition: transform 0.2s ease;
+        }
+        
+        .view-all:hover, .explore-btn:hover, .account-btn:hover, .login-btn:hover {
+            transform: translateY(-2px);
+            background-color: #c27c2e; /* Slightly lighter shade on hover */
+        }
+        
+        .contribute-btn:hover {
+            transform: translateY(-2px);
+            background-color: rgba(179, 107, 29, 0.1); /* Slight background on hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 50px;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff9a3c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            color: #ccc;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff9a3c;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+        .contribute-btn{
+            background-color: #b36b1d;
+        }
+        .contribute-btn a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        .account-btn {
+            text-decoration: none;
+        }
+        .view-all a{
+           text-decoration: none;
+           margin-top: 20px;
+           color: #ccc;
+        }
+        .explore-btn a{
+            text-decoration: none;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="Legacy of Bharat Logo">
+            <h1>Legacy of Bharat</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="stories.html">Stories</a>
+            <a href="explore.html">Explore</a>
+            <a href="contribute.html">Contribute</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Preserving the Rich Heritage of India</h2>
+            <p>A platform to explore, contribute, and discover India's historical events, photos, and stories.</p>
+            <div class="hero-buttons">
+                <button class="explore-btn"><a href="explore.html">Explore Now</a></button>
+                <button class="contribute-btn"><a href="contribute.html">Contribute</a></button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="themes">
+        <h2>Explore by themes</h2>
+        <div class="themes-carousel">
+            <div class="carousel-container">
+                <div class="theme-card" style="background-image: url('./images/group70/2.png');">
+                    <div class="theme-label">Ancient Architecture</div>
+                </div>
+                <div class="theme-card" style="background-image: url('./images/group70/3.png');">
+                    <div class="theme-label">Cultural Heritage</div>
+                </div>
+                <div class="theme-card active" style="background-image: url('./images/group70/4.png');">
+                    <div class="theme-label">Maps and Geography</div>
+                </div>
+                <div class="theme-card" style="background-image: url('./images/group70/5.png');">
+                    <div class="theme-label">Classical Arts</div>
+                </div>
+                <div class="theme-card" style="background-image: url('./images/group70/6.png');">
+                    <div class="theme-label">Natural Heritage</div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev-btn">←</button>
+            <button id="next-btn">→</button>
+        </div>
+    </section>
+    
+    <section class="account">
+        <div class="account-illustration">
+            <img src="./images/group70/7.png" alt="Account illustration">
+        </div>
+        <div class="account-content">
+            <h3>Create an account</h3>
+            <p>Curate galleries and save your favourite items. Join our community of heritage enthusiasts and contribute to preserving India's rich cultural legacy.</p>
+            <a href="signup.html" class="account-btn">Get Started</a>
+
+        </div>
+    </section>
+    
+    <section class="stories">
+        <h2 class="section-title">Latest stories</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/8.png');"></div>
+                <div class="card-content">
+                    <h4>Story</h4>
+                    <p>Discover the untold stories of India's freedom struggle through rare photographs.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/9.png');"></div>
+                <div class="card-content">
+                    <h4>Exhibition</h4>
+                    <p>Explore the evolution of Indian classical music through historical instruments.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/10.png');"></div>
+                <div class="card-content">
+                    <h4>Discovery</h4>
+                    <p>An ancient art form rediscovered in a remote village shows links to Harappan civilization.</p>
+                </div>
+            </div>
+        </div>
+        <button class="view-all"><a href="stories.html">See all stories</a></button>
+    </section>
+    
+    <section class="galleries">
+        <h2 class="section-title">Latest galleries</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/11.png');"></div>
+                <div class="card-content">
+                    <h4>Ancient Marvels</h4>
+                    <p>Explore the architectural wonders of ancient India through this collection of rare photographs.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/12.png');"></div>
+                <div class="card-content">
+                    <h4>Forgotten Kingdoms</h4>
+                    <p>Discover the lost stories of ancient Indian kingdoms through artifacts and historical records.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('./images/group70/13.png');"></div>
+                <div class="card-content">
+                    <h4>Warrior Forts</h4>
+                    <p>Explore the magnificent fortresses that stood as symbols of power and protection in ancient India.</p>
+                </div>
+            </div>
+        </div>
+        <button class="view-all">See all published galleries</button>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <!-- Mission Section -->
+            <div class="footer-section">
+                <h3>Our Mission</h3>
+                <p>Legacy of Bharat is dedicated to preserving and showcasing India's rich cultural heritage through digital innovation, fostering global appreciation and understanding.</p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>More info</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Our Initiatives</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h3>Find us elsewhere</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="./images/fb.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/insta.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/pinterest.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/twitter.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/linkedin.png"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Legacy of Bharat. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            const cards = document.querySelectorAll('.theme-card');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            let currentIndex = 2; // Start with Maps and Geography as active
+            
+            // Set initial position
+            updateCarousel();
+            
+            // Event listeners
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+            
+            function updateCarousel() {
+                // Remove active class from all cards
+                cards.forEach(card => card.classList.remove('active'));
+                
+                // Add active class to current card
+                cards[currentIndex].classList.add('active');
+                
+                // Calculate position to center the active card
+                const cardWidth = cards[0].offsetWidth + 20; // 20px is for margins
+                const offset = window.innerWidth / 2 - (cardWidth * currentIndex) - cardWidth / 2;
+                
+                // Move the carousel
+                carouselContainer.style.transform = `translateX(${offset}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

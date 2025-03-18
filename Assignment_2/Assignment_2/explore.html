@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy of Bharat</title>
+    <style>
+        /* Reset and Global Styles */
+        /* Reset and Global Styles */
+    /* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #111111;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #060101;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff9a3c;
+}
+
+.login-btn {
+    background-color: #ff9a3c;
+    color: #000;
+    padding: 8px 20px;
+    
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #d9772b;
+}
+
+
+/* Hero Section */
+.hero {
+    padding: 40px 20px;
+    justify-items: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    color: #d18128;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+/* Search Bar */
+.search-bar {
+    margin: 20px 0;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border-radius: 25px;
+    border: none;
+    background-color: #444;
+    color: white;
+    font-size: 14px;
+}
+
+.search-bar::before {
+    content: "🔍";
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    color: #999;
+}
+
+/* Feature Banner */
+.feature-banner {
+    background-color: #d18128;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 30px 0;
+    display: flex;
+    height: 180px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.feature-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.feature-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.feature-content p {
+    font-size: 14px;
+}
+
+.feature-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    color: #d18128;
+    font-size: 28px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 50px;
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 200px;
+    box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.category-card:hover{
+    transform: translateY(-10px); /* Move card up slightly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #d18128;
+    padding: 15px;
+}
+
+.category-info h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.category-info p {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Timeline Section */
+.timeline {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    flex: 1;
+    text-align: center;
+}
+
+.timeline-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.timeline-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.timeline-item p {
+    font-size: 12px;
+}
+
+.timeline-nav {
+    text-align: right;
+    padding: 10px;
+}
+
+.timeline-nav a {
+    color: #d18128;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    padding: 50px;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.footer-section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ff9a3c;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: #ccc;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #ff9a3c;
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Adjustments for timeline section */
+.timeline-container {
+    width: 100%;
+}
+
+/* See more link style */
+.timeline-nav {
+    text-align: right;
+    position: relative;
+    right: 0;
+}
+
+.timeline-nav a {
+    color: #d18128;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="Legacy of Bharat Logo">
+            <h1>Legacy of Bharat</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="stories.html">Stories</a>
+            <a href="explore.html">Explore</a>
+            <a href="contribute.html">Contribute</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Explore India's</h1>
+        <h2>Rich Heritage</h2>
+        <p>Discover historical manuscripts, forgotten warriors, iconic monuments, and ancient wisdom that shaped India's past.</p>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Find Your Story in History">
+        </div>
+        
+        <div class="feature-banner">
+            <div class="feature-content">
+                <h3>Uncover the Secrets of India's Glorious Past</h3>
+            </div>
+            <div class="feature-image" style="background-image: url('./images/group60/1.png');"></div>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section>
+        <h2 class="section-title">Timeless Treasures</h2>
+        <p class="section-subtitle">Explore rare manuscripts, legendary battles, and ancient artifacts</p>
+        
+        <div class="category-grid">
+            <!-- Category 1 -->
+            <div class="category-card">
+                <img src="./images/group60/2.png" alt="Ancient Manuscripts">
+                <div class="category-info">
+                    <h4>Ancient Manuscripts & Libraries</h4>
+                    <p>Explore rare manuscripts and lost texts that hold the wisdom of ancient India</p>
+                </div>
+            </div>
+            
+            <!-- Category 2 -->
+            <div class="category-card">
+                <img src="./images/group60/3.png" alt="Forgotten Warriors">
+                <div class="category-info">
+                    <h4>Forgotten Warriors & Battles</h4>
+                    <p>Discover the untold stories of brave warriors and significant battles in Indian history</p>
+                </div>
+            </div>
+            
+            <!-- Category 3 -->
+            <div class="category-card">
+                <img src="./images/group60/4.png" alt="Architectural Marvels">
+                <div class="category-info">
+                    <h4>Architectural Marvels</h4>
+                    <p>Witness the majestic temples and sacred sites that showcase India's architectural brilliance</p>
+                </div>
+            </div>
+            
+            <!-- Category 4 -->
+            <div class="category-card">
+                <img src="./images/group60/5.png" alt="Indian Art & Music">
+                <div class="category-info">
+                    <h4>Indian Art & Music</h4>
+                    <p>Discover the evolution of Indian music, art, and dance that transcends time</p>
+                </div>
+            </div>
+            
+            <!-- Category 5 -->
+            <div class="category-card">
+                <img src="./images/group60/6.png" alt="Freedom Struggle">
+                <div class="category-info">
+                    <h4>Freedom Struggle & Revolutionaries</h4>
+                    <p>Journey through India's fight for independence and the heroes who led the movement</p>
+                </div>
+            </div>
+            
+            <!-- Category 6 -->
+            <div class="category-card">
+                <img src="./images/group60/7.png" alt="Science & Inventions">
+                <div class="category-info">
+                    <h4>Science & Inventions</h4>
+                    <p>India's scientific heritage dates back thousands of years, from zero to Ayurveda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2 class="section-title">A Journey Through Time</h2>
+        <p class="section-subtitle">Explore India's rich history through a chronological timeline of significant events</p>
+        
+        <div class="timeline-container">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <img src="./images/group60/8.png" alt="Indus Valley">
+                <h3>3000 BCE</h3>
+                <p>Indus Valley Civilization</p>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <img src="./images/group60/9.png" alt="Vedic Period">
+                <h3>1500 BCE</h3>
+                <p>Vedic Period</p>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <img src="./images/group60/10.png" alt="Gupta Empire">
+                <h3>5th Century CE</h3>
+                <p>Gupta Golden Age</p>
+            </div>
+        </div>
+        
+        <div class="timeline-nav">
+            <a href="#">See more →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Mission Section -->
+            <div class="footer-section">
+                <h3>Our Mission</h3>
+                <p>Legacy of Bharat is dedicated to preserving and showcasing India's rich cultural heritage through digital innovation, fostering global appreciation and understanding.</p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>More info</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Our Initiatives</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h3>Find us elsewhere</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="./images/fb.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/insta.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/pinterest.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/twitter.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/linkedin.png"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Legacy of Bharat. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

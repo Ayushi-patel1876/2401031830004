@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy of Bharat - Music</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #333;
+            color: white;
+        }
+        
+        header {
+            background-color: #060101;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff9a3c;
+        }
+
+        .login-btn {
+            background-color: #ff9a3c;
+            color: #000;
+            padding: 8px 20px;
+            
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #d9772b;
+        }
+
+        
+        .banner {
+            position: relative;
+            height: 450px;
+            background-image: url('./images/group61/1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+        }
+        
+        .banner-content h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .banner-content p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        
+        .share-btn {
+            background-color: #e78d35;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .share-btn span {
+            font-size: 12px;
+        }
+        
+        .genres {
+            padding: 40px;
+        }
+        
+        .genres h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+        
+        .genre-list {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .genre-item {
+            background-color: #444;
+            border-radius: 30px;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .genre-item:hover {
+            background-color: #555;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .genre-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .genre-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .icons-section {
+            padding: 40px;
+        }
+        
+        .icons-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .icon-card {
+            display: flex;
+            background-color: #eee;
+            color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 80px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .icon-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background-color: #f7f7f7;
+        }
+        
+        .icon-text {
+            padding: 15px;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .icon-image {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .search-box {
+            margin: 40px;
+            background-color: #ff9b33;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            position: relative;
+        }
+        
+        .search-illustration {
+            width: 40%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-illustration img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .search-content {
+            width: 60%;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .search-content p {
+            margin-bottom: 20px;
+        }
+        
+        .search-btn {
+            background-color: #e6d1b8;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #000;
+        }
+        
+        footer {
+            background-color: #000;
+            padding: 50px;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ff9a3c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            color: #ccc;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff9a3c;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.png" alt="Legacy of Bharat Logo">
+            <h1>Legacy of Bharat</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="stories.html">Stories</a>
+            <a href="explore.html">Explore</a>
+            <a href="contribute.html">Contribute</a>
+            <a href="music.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+    
+    <section class="banner" style="background-image: url('./images/group61/1.png');">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h2>Music</h2>
+            <p>Explore recordings, sheet music, instruments and musical styles, as well as composers and performers.</p>
+            <button class="share-btn">
+                <span>▶</span>
+                SHARE
+            </button>
+        </div>
+    </section>
+    
+    <section class="genres">
+        <h3>GENRES</h3>
+        <div class="genre-list">
+            <div class="genre-item">
+                <div class="genre-icon">
+                    <img src="./images/group61/2.png" alt="violin">
+                </div>
+                <span>Violin concerto</span>
+            </div>
+            <div class="genre-item">
+                <div class="genre-icon">
+                    <img src="./images/group61/3.png" alt="vedic">
+                </div>
+                <span>Vedic Chants</span>
+            </div>
+            <div class="genre-item">
+                <div class="genre-icon">
+                    <img src="./images/group61/4.png" alt="dance">
+                </div>
+                <span>Classical Dance</span>
+            </div>
+            <div class="genre-item">
+                <div class="genre-icon">
+                    <img src="./images/group61/5.png" alt="freedom">
+                </div>
+                <span>Freedom Songs</span>
+            </div>
+            <div class="genre-item">
+                <div class="genre-icon">
+                    <img src="./images/group61/6.png" alt="folk">
+                </div>
+                <span>Folk Music</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="icons-section">
+        <h3>Icons of Bharat</h3>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <div class="icon-text">Chanakya</div>
+                <div class="icon-image" style="background-image: url('./images/group61/7.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Kalidasa</div>
+                <div class="icon-image" style="background-image: url('./images/group61/8.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Aryabhata</div>
+                <div class="icon-image" style="background-image: url('./images/group61/9.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Tansen</div>
+                <div class="icon-image" style="background-image: url('./images/group61/10.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Bhaskara I</div>
+                <div class="icon-image" style="background-image: url('./images/group61/11.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Mahatma<br>Gandhi</div>
+                <div class="icon-image" style="background-image: url('./images/group61/12.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Sushruta</div>
+                <div class="icon-image" style="background-image: url('./images/group61/13.png');"></div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-text">Raja Ravi<br>Varma</div>
+                <div class="icon-image" style="background-image: url('./images/group61/14.png');"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="search-box">
+        <div class="search-illustration">
+            <img src="./images/group61/15.png" alt="Search illustration">
+        </div>
+        <div class="search-content">
+            <h3>Search within the Music theme</h3>
+            <p>Explore more than 601,000 items</p>
+            <button class="search-btn">Search now</button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <!-- Mission Section -->
+            <div class="footer-section">
+                <h3>Our Mission</h3>
+                <p>Legacy of Bharat is dedicated to preserving and showcasing India's rich cultural heritage through digital innovation, fostering global appreciation and understanding.</p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>More info</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Our Initiatives</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-section">
+                <h3>Find us elsewhere</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="./images/fb.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/insta.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/pinterest.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/twitter.png"></a>
+                    <a href="#" class="social-icon"><img src="./images/linkedin.png"></a>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Legacy of Bharat. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
